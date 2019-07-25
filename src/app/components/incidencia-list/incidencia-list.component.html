@@ -1,0 +1,50 @@
+<div style="padding-bottom: 2%;">
+    <div class="row">
+            <div class="col-sm-4">
+                <a routerLink="/home" routerLinkActivate="activate">
+                    <button class="btn btn-primary btn-block  ">
+                            <- Volver al Inicio
+                        </button>
+                    </a>
+                </div>
+            <div class="col-md-4">
+        
+            </div>
+            <div class="col-sm-4">
+                <a routerLink="/incidencia/create" routerLinkActivate="activate">
+                    <button class="btn btn-primary btn-block  ">
+                            + Crear Incidencia
+                        </button>
+                </a>
+            </div>
+        </div>
+</div>
+
+<div *ngFor="let incidencia of incidencias" class="card card-body mb-2">
+    <div class="row">
+        <div class="col-md-8">
+            <ul>
+                <li>
+                    Id: {{incidencia._id}}
+                </li>
+                <li>
+                    Ubicacion: {{incidencia.ubicacion}}
+                </li>
+                <li>
+                    Fecha: {{incidencia.fecha}}
+                </li>
+                <li>
+                    Electrodomestico: {{incidencia.producto}}
+                </li>
+            </ul>
+            <button class="btn btn-danger" (click)="deleteIncidencia(incidencia._id)">
+                Arreglada
+            </button>
+        </div>
+        <div class="col-md-4">
+            <div    class="card-img">
+                <agm-map></agm-map>
+            </div>
+        </div>
+    </div>
+</div>
